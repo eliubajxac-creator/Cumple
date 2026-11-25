@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cumpleaños</title>
+    
+    <!-- Tailwind CSS para estructura responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tipografías editoriales y caligráficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Caveat:wght@500;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/4d/6f/5b/4d6f5b9daa8787b8e1c7b06910e79139.jpg">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#FAF6F2',
+                        papel: '#F4ECE6',
+                        rosaPolvo: '#E5B8B7',
+                        rosaViejo: '#C98A8B',
+                        terracota: '#A86466',
+                        salvia: '#7D8C75',
+                        salviaOscuro: '#586651',
+                        tinta: '#3A2E2E',
+                        dorado: '#C5A065',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mano: ['"Caveat"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Textura artesanal de papel de algodón */
+        body {
+            background-color: #FAF6F2;
+            color: #3A2E2E;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(rgba(201, 138, 139, 0.08) 1px, transparent 0),
+                radial-gradient(rgba(125, 140, 117, 0.06) 1px, transparent 0);
+            background-size: 36px 36px;
+            background-position: 0 0, 18px 18px;
+        }
+
+        /* Filtro sutil de grano de papel */
+        .paper-grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 40;
+            opacity: 0.28;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E");
+        }
+
+        /* Animación orgánica de brisa suave para los lirios */
+        @keyframes brisaSuave {
+            0%, 100% { transform: rotate(-1.8deg) translateY(0px); }
+            50% { transform: rotate(2.2deg) translateY(-4px); }
+        }
+        .lirio-brisa {
+            transform-origin: bottom center;
+            animation: brisaSuave 6.5s ease-in-out infinite;
+        }
+        .lirio-brisa-lento {
+            transform-origin: bottom center;
+            animation: brisaSuave 8s ease-in-out infinite reverse;
+        }
+
+        /* Florecimiento al aparecer en el jardín */
+        @keyframes florecer {
+            0% { transform: scale(0.1) translateY(20px); opacity: 0; }
+            60% { transform: scale(1.06) translateY(-2px); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .anim-florecer {
+            transform-origin: bottom center;
+            animation: florecer 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Temblor dulce del sello de lacre antes de tiempo */
+        @keyframes temblorDulce {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            20% { transform: translateX(-5px) rotate(-2deg); }
+            40% { transform: translateX(5px) rotate(2deg); }
+            60% { transform: translateX(-4px) rotate(-1deg); }
+            80% { transform: translateX(4px) rotate(1deg); }
+        }
+        .sacudir-sobre {
+            animation: temblorDulce 0.55s ease-in-out;
+        }
+
+        /* Llama de la vela orgánica */
+        @keyframes parpadeoLlama {
+            0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
+            33% { transform: scale(1.06, 0.96) rotate(2deg); opacity: 1; }
+            66% { transform: scale(0.95, 1.04) rotate(-2deg); opacity: 0.9; }
+        }
+        .llama-vela {
+            transform-origin: bottom center;
+            animation: parpadeoLlama 2.2s ease-in-out infinite;
+        }
+
+        /* Humo al apagar la vela */
+        @keyframes subirHumo {
+            0% { opacity: 0.7; transform: translateY(0) scale(0.8); }
+            100% { opacity: 0; transform: translateY(-45px) scale(1.8); }
+        }
+        .humo-activo {
+            animation: subirHumo 2.2s ease-out forwards;
+        }
+
+        /* Sello de lacre realista */
+        .sello-lacre {
+            background: radial-gradient(circle at 35% 35%, #C97A7E, #9E4E52 65%, #7B3639 100%);
+            box-shadow: 
+                0 6px 14px rgba(123, 54, 57, 0.35),
+                inset 0 2px 4px rgba(255, 230, 230, 0.4),
+                inset 0 -3px 6px rgba(60, 20, 22, 0.4);
+        }
+
+        /* Tarjeta estilo papel carta con borde sutil */
+        .hoja-carta {
+            background: linear-gradient(180deg, #FFFDFB 0%, #F9F2EC 100%);
+            box-shadow: 
+                0 12px 35px -10px rgba(92, 64, 65, 0.14),
+                0 2px 6px rgba(92, 64, 65, 0.06);
+            border: 1px solid rgba(201, 138, 139, 0.25);
+        }
+
+        /* Estilo Polaroid artesanal */
+        .polaroid {
+            background: #FFFDFB;
+            padding: 12px 12px 36px 12px;
+            box-shadow: 0 10px 25px -8px rgba(58, 46, 46, 0.18);
+            border: 1px solid rgba(201, 138, 139, 0.2);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+        .polaroid:hover {
+            transform: translateY(-6px) rotate(0deg) scale(1.02) !important;
+            box-shadow: 0 18px 32px -10px rgba(58, 46, 46, 0.25);
+            z-index: 10;
+        }
+
+        /* Lienzo de pétalos flotantes */
+        #lienzo-petalos {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 30;
+        }
+
+        /* Animación de rotación suave del vinilo */
+        @keyframes girarVinilo {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .vinilo-girando {
+            animation: girarVinilo 7s linear infinite;
+        }
+        .vinilo-pausado {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rosaPolvo/40 selection:text-tinta">
+
+    <!-- Textura de papel y lienzo de pétalos dinámicos -->
+    <div class="paper-grain"></div>
+    <canvas id="lienzo-petalos"></canvas>
+
+    <!-- =====================================================================
+         AUDIO PERSONALIZABLE (OPCIONAL: COLOCA AQUÍ TU MP3 EN EL ATRIBUTO src)
+         Si dejas src="", sonará automáticamente la melodía de piano romántica.
+         ===================================================================== -->
+    <audio id="cancion-cumple" src="Olivia Rodrigo - honeybee (Lyric Video).mp3" loop preload="auto"></audio>
+
+    <!-- =====================================================================
+         REPRODUCTOR DE VINILO ARTESANAL (SOLO VISIBLE EL 2/12/2026 O DESPUÉS)
+         ===================================================================== -->
+    <div id="reproductor-vinilo" class="hidden fixed bottom-4 left-4 z-50 transition-all duration-700 transform translate-y-4 opacity-0">
+        <div class="bg-[#FFFDFB]/95 backdrop-blur-md border border-rosaViejo/35 rounded-2xl p-2.5 pr-4 shadow-xl flex items-center gap-3 max-w-[270px] sm:max-w-xs">
+            
+            <!-- Disco de vinilo rosa con etiqueta floral -->
+            <div onclick="alternarMusica()" class="relative w-12 h-12 shrink-0 cursor-pointer group" title="Reproducir / Pausar">
+                <div id="disco-vinilo" class="w-full h-full rounded-full bg-gradient-to-tr from-[#3A2E2E] via-[#524141] to-[#3A2E2E] border-2 border-dorado/60 shadow-inner flex items-center justify-center vinilo-girando vinilo-pausado">
+                    <!-- Surcos sutiles del vinilo -->
+                    <div class="w-9 h-9 rounded-full border border-rosaPolvo/20 flex items-center justify-center">
+                        <!-- Etiqueta central rosa empolvado -->
+                        <div class="w-5 h-5 rounded-full bg-rosaPolvo border border-crema flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-crema"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información de la melodía y estado -->
+            <div class="min-w-0 flex-1">
+                <p class="font-serif italic text-sm text-tinta font-semibold truncate">
+                    Una de tu fav. · 2/12
+                </p>
+                <p id="estado-musica-texto" class="text-[11px] text-terracota truncate">
+                    Toca para escuchar nuestra melodía
+                </p>
+            </div>
+
+            <!-- Botón Play / Pause -->
+            <button id="btn-play-pause" onclick="alternarMusica()" aria-label="Reproducir o pausar música"
+                    class="w-8 h-8 rounded-full bg-rosaPolvo/30 hover:bg-rosaPolvo/50 text-terracota flex items-center justify-center transition-colors shrink-0">
+                <!-- Icono Play -->
+                <svg id="icono-play" class="w-3.5 h-3.5 translate-x-0.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+                <!-- Icono Pause -->
+                <svg id="icono-pause" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mensaje flotante discreto (reemplaza cualquier alerta del sistema) -->
+    <div id="notificacion-dulce" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-500 transform -translate-y-3">
+        <div class="bg-tinta/90 text-crema px-5 py-2.5 rounded-full shadow-xl text-sm font-serif italic tracking-wide flex items-center gap-2 border border-rosaPolvo/30">
+            <span class="text-rosaPolvo">❀</span>
+            <span id="texto-notificacion">Aún falta un poquito para abrir tu carta...</span>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         CONTENEDOR PRINCIPAL EDITORIAL
+         ===================================================================== -->
+    <main class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 pt-10 pb-28">
+
+        <!-- Decoración superior botánica (Lirios ilustrados a mano) -->
+        <header class="text-center relative pt-4 pb-8">
+            <div class="flex justify-center items-end gap-2 mb-4">
+                <!-- Ilustración SVG de Lirio Rosado izquierdo -->
+                <svg class="w-16 h-24 sm:w-20 sm:h-28 lirio-brisa-lento" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 155C60 120 55 95 62 70" stroke="#7D8C75" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M59 125C40 115 30 98 35 88C45 92 55 108 59 125Z" fill="#8FA086" opacity="0.85"/>
+                    <path d="M61 112C80 100 88 85 82 76C73 82 65 96 61 112Z" fill="#7D8C75" opacity="0.85"/>
+                    <!-- Pétalos de lirio -->
+                    <path d="M62 72C42 62 28 42 36 28C48 34 58 52 62 72Z" fill="#E8B9B8"/>
+                    <path d="M62 72C82 62 96 42 88 28C76 34 66 52 62 72Z" fill="#E2AEAD"/>
+                    <path d="M62 72C50 48 52 22 62 12C72 22 74 48 62 72Z" fill="#F2CECD"/>
+                    <path d="M62 72C38 74 22 64 22 52C34 50 50 58 62 72Z" fill="#D59697"/>
+                    <path d="M62 72C86 74 102 64 102 52C90 50 74 58 62 72Z" fill="#D59697"/>
+                    <!-- Pistilo y estambres -->
+                    <path d="M62 68C58 52 54 44 50 40" stroke="#C5A065" stroke-width="1.3" stroke-linecap="round"/>
+                    <path d="M62 68C66 52 70 44 74 40" stroke="#C5A065" stroke-width="1.3" stroke-linecap="round"/>
+                    <circle cx="50" cy="39" r="2.2" fill="#A86466"/>
+                    <circle cx="74" cy="39" r="2.2" fill="#A86466"/>
+                </svg>
+
+                <!-- Ilustración SVG de Lirio Blanco Central -->
+                <svg class="w-20 h-28 sm:w-24 sm:h-32 lirio-brisa" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 158C60 120 62 92 60 66" stroke="#6E7E66" stroke-width="2.6" stroke-linecap="round"/>
+                    <path d="M60 128C38 118 26 102 32 90C44 95 55 110 60 128Z" fill="#7D8C75"/>
+                    <path d="M60 115C82 104 92 88 86 76C74 82 65 98 60 115Z" fill="#8FA086"/>
+                    <!-- Pétalos crema y rosa suave -->
+                    <path d="M60 68C36 58 22 36 32 20C46 28 56 48 60 68Z" fill="#FFFDF9" stroke="#E5B8B7" stroke-width="1"/>
+                    <path d="M60 68C84 58 98 36 88 20C74 28 64 48 60 68Z" fill="#FAF2EC" stroke="#E5B8B7" stroke-width="1"/>
+                    <path d="M60 68C46 42 50 16 60 6C70 16 74 42 60 68Z" fill="#FFFFFF" stroke="#E5B8B7" stroke-width="1"/>
+                    <path d="M60 68C34 72 16 60 18 46C32 45 48 54 60 68Z" fill="#F5DFDE"/>
+                    <path d="M60 68C86 72 104 60 102 46C88 45 72 54 60 68Z" fill="#F5DFDE"/>
+                    <!-- Detalles internos -->
+                    <path d="M60 64L53 36M60 64L67 36M60 64L60 30" stroke="#C5A065" stroke-width="1.4" stroke-linecap="round"/>
+                    <ellipse cx="53" cy="35" rx="2.5" ry="1.5" fill="#C5A065"/>
+                    <ellipse cx="67" cy="35" rx="2.5" ry="1.5" fill="#C5A065"/>
+                    <ellipse cx="60" cy="29" rx="2.5" ry="1.5" fill="#A86466"/>
+                </svg>
+
+                <!-- Ilustración SVG de Lirio Rosado derecho -->
+                <svg class="w-16 h-24 sm:w-20 sm:h-28 lirio-brisa-lento" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 155C60 120 65 95 58 70" stroke="#7D8C75" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M60 122C42 110 34 94 40 84C48 90 56 105 60 122Z" fill="#7D8C75" opacity="0.85"/>
+                    <path d="M59 110C78 100 88 84 82 74C72 80 64 95 59 110Z" fill="#8FA086" opacity="0.85"/>
+                    <path d="M58 72C38 62 24 42 32 28C44 34 54 52 58 72Z" fill="#E2AEAD"/>
+                    <path d="M58 72C78 62 92 42 84 28C72 34 62 52 58 72Z" fill="#E8B9B8"/>
+                    <path d="M58 72C46 48 48 22 58 12C68 22 70 48 58 72Z" fill="#F2CECD"/>
+                    <path d="M58 72C34 74 18 64 18 52C30 50 46 58 58 72Z" fill="#D59697"/>
+                    <path d="M58 72C82 74 98 64 98 52C86 50 70 58 58 72Z" fill="#D59697"/>
+                    <path d="M58 68C54 52 50 44 46 40" stroke="#C5A065" stroke-width="1.3" stroke-linecap="round"/>
+                    <path d="M58 68C62 52 66 44 70 40" stroke="#C5A065" stroke-width="1.3" stroke-linecap="round"/>
+                    <circle cx="46" cy="39" r="2.2" fill="#A86466"/>
+                    <circle cx="70" cy="39" r="2.2" fill="#A86466"/>
+                </svg>
+            </div>
+
+            <p id="etiqueta-fecha" class="uppercase tracking-[0.25em] text-xs text-terracota font-medium mb-2">
+                Echo especialmente para ti My Princess! <3
+            </p>
+            <h1 id="titulo-principal" class="font-serif text-4xl sm:text-6xl font-normal text-tinta leading-tight">
+                Esperando el día en que <span class="italic text-terracota">Floreces</span>
+            </h1>
+            <p id="subtitulo-principal" class="mt-3 text-tinta/75 font-light max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
+                Cada pétalo cuenta los instantes que faltan para celebrar tu vida, tu risa y todo lo bonito que traes al mundo.
+            </p>
+        </header>
+
+        <!-- =================================================================
+             ESTADO 1: ANTES DEL 2 DE DICIEMBRE DE 2026
+             ================================================================= -->
+        <section id="vista-antes" class="space-y-12 transition-all duration-700">
+            
+            <!-- Reloj de Cuenta Regresiva Artesanal -->
+            <div class="hoja-carta rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+                <div class="absolute top-3 left-4 text-rosaViejo/40 font-serif italic text-sm">Faltan...</div>
+                
+                <div class="grid grid-cols-4 gap-2 sm:gap-6 max-w-lg mx-auto my-2">
+                    <div class="bg-crema/90 border border-rosaPolvo/40 rounded-2xl py-4 px-2">
+                        <span id="dias" class="block font-serif text-3xl sm:text-5xl text-terracota font-semibold">00</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-widest text-tinta/60 mt-1 block">Días</span>
+                    </div>
+                    <div class="bg-crema/90 border border-rosaPolvo/40 rounded-2xl py-4 px-2">
+                        <span id="horas" class="block font-serif text-3xl sm:text-5xl text-terracota font-semibold">00</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-widest text-tinta/60 mt-1 block">Horas</span>
+                    </div>
+                    <div class="bg-crema/90 border border-rosaPolvo/40 rounded-2xl py-4 px-2">
+                        <span id="minutos" class="block font-serif text-3xl sm:text-5xl text-terracota font-semibold">00</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-widest text-tinta/60 mt-1 block">Minutos</span>
+                    </div>
+                    <div class="bg-crema/90 border border-rosaPolvo/40 rounded-2xl py-4 px-2">
+                        <span id="segundos" class="block font-serif text-3xl sm:text-5xl text-rosaViejo font-semibold">00</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-widest text-tinta/60 mt-1 block">Segundos</span>
+                    </div>
+                </div>
+
+                <p class="font-mano text-2xl text-salviaOscuro mt-4">
+                    Hasta las 00:00 del 2 de diciembre de 2026
+                </p>
+            </div>
+
+            <!-- Sobre Sellado con Lacre ("Abrir el 2 de diciembre") -->
+            <div class="max-w-xl mx-auto">
+                <div id="sobre-cerrado" onclick="intentarAbrirSobre()" class="cursor-pointer group relative bg-[#F3E7DF] border border-rosaViejo/35 rounded-2xl p-8 sm:p-10 text-center shadow-md hover:shadow-xl transition-all duration-300">
+                    <!-- Líneas decorativas de solapa de sobre -->
+                    <div class="absolute inset-x-0 top-0 h-24 border-b border-rosaViejo/20 rounded-t-2xl bg-gradient-to-b from-[#EAD9CE]/60 to-transparent pointer-events-none"></div>
+                    
+                    <div class="relative z-10 flex flex-col items-center">
+                        <!-- Sello de Lacre -->
+                        <div class="sello-lacre w-16 h-16 rounded-full flex items-center justify-center text-crema mb-4 group-hover:scale-105 transition-transform">
+                            <!-- Icono grabado en el lacre -->
+                            <svg class="w-8 h-8 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 3C9.5 7 9.5 11 12 14C14.5 11 14.5 7 12 3Z" />
+                                <path d="M12 14C8 12 5 13 4 15.5C6.5 17 9.5 16 12 14Z" />
+                                <path d="M12 14C16 12 19 13 20 15.5C17.5 17 14.5 16 12 14Z" />
+                                <path d="M12 14V21" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+
+                        <span class="font-serif italic text-xl sm:text-2xl text-tinta">
+                            Carta confidencial de cumpleaños
+                        </span>
+                        <p class="text-xs uppercase tracking-[0.2em] text-terracota mt-2 font-medium">
+                            Abrir el 2 de diciembre
+                        </p>
+                        <p class="text-xs text-tinta/55 mt-3">
+                            (Toca el sello de lacre para comprobar si ya es hora)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =================================================================
+             ESTADO 2: EL 2 DE DICIEMBRE DE 2026 Y DESPUÉS (DÍA DEL CUMPLEAÑOS)
+             ================================================================= -->
+        <section id="vista-cumple" class="hidden space-y-14 transition-all duration-1000">
+            
+            <!-- Banner de Celebración -->
+            <div class="text-center bg-gradient-to-r from-transparent via-rosaPolvo/25 to-transparent py-4 px-6 rounded-full border-y border-rosaViejo/25">
+                <p class="font-serif italic text-xl sm:text-2xl text-terracota">
+                    ¡Hoy el calendario por fin marca tu día! Feliz cumpleaños, mi amor.
+                </p>
+            </div>
+
+            <!-- CARTA DE CUMPLEAÑOS ABIERTA Y PERSONALIZABLE -->
+            <article class="hoja-carta rounded-3xl p-7 sm:p-12 relative">
+                <!-- Sello de lacre roto / abierto decorativo en la esquina -->
+                <div class="flex justify-between items-start border-b border-rosaPolvo/40 pb-5 mb-7">
+                    <div>
+                        <p class="font-mano text-2xl text-salviaOscuro">2 de diciembre de 2026</p>
+                        <!-- PERSONALIZA AQUÍ EL NOMBRE DE TU NOVIA -->
+                        <h2 class="font-serif text-3xl sm:text-4xl text-tinta mt-1">
+                            Para <span id="nombre-novia" class="italic text-terracota">mi persona favorita</span>,
+                        </h2>
+                    </div>
+                    <div class="sello-lacre w-11 h-11 rounded-full flex items-center justify-center text-crema/90 text-xs font-serif italic shrink-0" title="Sello abierto">
+                        2·XII
+                    </div>
+                </div>
+
+                <!-- CUERPO DE LA CARTA (EDITA ESTOS PÁRRAFOS CON TUS PROPIAS PALABRAS) -->
+                <div class="space-y-5 font-serif text-lg sm:text-xl text-tinta/90 leading-relaxed">
+                    <p>
+                        Hoy no es un día cualquiera en el calendario; hoy celebramos el instante en que el mundo se volvió un lugar más luminoso, más amable y infinitamente más bonito porque llegaste tú.
+                    </p>
+                    <p>
+                        Quise regalarte este pequeño jardín de lirios porque, igual que ellos, tienes una forma única de llenar de calma y belleza cada rincón donde estás. Gracias por tu ternura, por la forma en que miras las cosas pequeñas y por ser mi hogar en cualquier día.
+                    </p>
+                    <p>
+                        Deseo que este nuevo año de vida te abrace con sueños cumplidos, risas de esas que duelen en el estómago y momentos que guardemos para siempre. Yo prometo seguir aquí, celebrándote hoy y todos los días que vengan.
+                    </p>
+                </div>
+
+                <div class="mt-9 pt-6 border-t border-rosaPolvo/30 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                        <p class="font-serif italic text-tinta/75 text-lg">Con todo mi amor,</p>
+                        <!-- PERSONALIZA AQUÍ TU FIRMA -->
+                        <p id="tu-firma" class="font-mano text-3xl text-terracota mt-1">Siempre tuyo ♡</p>
+                    </div>
+                    
+                </div>
+            </article>
+
+            <!-- PASTEL ARTESANAL CON VELA INTERACTIVA PARA SOPLAR -->
+            <div class="hoja-carta rounded-3xl p-8 text-center max-w-lg mx-auto">
+                <h3 class="font-serif text-2xl sm:text-3xl text-tinta">Pide un deseo</h3>
+                <p id="instruccion-vela" class="text-sm text-tinta/70 mt-1 mb-6">
+                    Cierra los ojos, pide tu deseo de cumpleaños y toca la llama para soplarla.
+                </p>
+
+                <!-- Ilustración interactiva del pastel y vela -->
+                <div onclick="soplarVela()" class="cursor-pointer inline-block relative select-none group" title="Toca para soplar la vela">
+                    <svg class="w-56 h-56 mx-auto" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Resplandor cálido de la llama -->
+                        <circle id="resplandor-vela" cx="110" cy="48" r="28" fill="url(#luzVela)" class="transition-opacity duration-700"/>
+                        
+                        <!-- Humo (visible al apagar) -->
+                        <path id="humo-vela" d="M110 56C106 46 114 38 109 26" stroke="#9E9494" stroke-width="2" stroke-linecap="round" class="opacity-0"/>
+
+                        <!-- Llama de la vela -->
+                        <g id="grupo-llama" class="llama-vela transition-opacity duration-300">
+                            <path d="M110 26C110 26 119 40 119 48C119 53 115 57 110 57C105 57 101 53 101 48C101 40 110 26 110 26Z" fill="#E89B4C"/>
+                            <path d="M110 34C110 34 115 43 115 48C115 51 112.8 53.5 110 53.5C107.2 53.5 105 51 105 48C105 43 110 34 110 34Z" fill="#FFF3C4"/>
+                        </g>
+
+                        <!-- Mecha y Vela -->
+                        <line x1="110" y1="57" x2="110" y2="64" stroke="#3A2E2E" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="104" y="64" width="12" height="36" rx="4" fill="#FAF6F2" stroke="#D59697" stroke-width="1.5"/>
+                        <path d="M104 74L116 80M104 86L116 92" stroke="#E5B8B7" stroke-width="2"/>
+
+                        <!-- Piso superior del pastel -->
+                        <rect x="62" y="100" width="96" height="34" rx="10" fill="#F2CECD" stroke="#C98A8B" stroke-width="1.5"/>
+                        <!-- Glaseado goteando -->
+                        <path d="M62 108C68 116 74 116 80 108C86 118 94 118 100 108C106 116 114 116 120 108C126 118 134 118 140 108C146 115 152 115 158 108V104C158 101.8 156.2 100 154 100H66C63.8 100 62 101.8 62 104V108Z" fill="#FFFDFB"/>
+
+                        <!-- Piso inferior del pastel -->
+                        <rect x="42" y="134" width="136" height="42" rx="12" fill="#E5B8B7" stroke="#C98A8B" stroke-width="1.5"/>
+                        <!-- Detalles botánicos en el pastel -->
+                        <circle cx="75" cy="155" r="4" fill="#FFFDFB"/>
+                        <circle cx="110" cy="155" r="4" fill="#FFFDFB"/>
+                        <circle cx="145" cy="155" r="4" fill="#FFFDFB"/>
+                        <path d="M68 155C63 151 60 153 60 155C60 157 63 159 68 155Z" fill="#7D8C75"/>
+                        <path d="M152 155C157 151 160 153 160 155C160 157 157 159 152 155Z" fill="#7D8C75"/>
+
+                        <!-- Plato artesanal -->
+                        <ellipse cx="110" cy="180" rx="84" ry="8" fill="#EAE0D8" stroke="#C5A065" stroke-width="1.2"/>
+
+                        <defs>
+                            <radialGradient id="luzVela" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(110 48) scale(28)">
+                                <stop stop-color="#F6C87A" stop-opacity="0.65"/>
+                                <stop offset="1" stop-color="#F6C87A" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div id="mensaje-deseo" class="hidden mt-3">
+                    <p class="font-serif italic text-xl text-terracota">
+                        ¡Deseo enviado al universo! Que cada cosa que pediste se haga realidad.
+                    </p>
+                    <button onclick="encenderVela()" class="mt-3 text-xs underline text-tinta/60 hover:text-terracota">
+                        Volver a encender la vela
+                    </button>
+                </div>
+            </div>
+
+            <!-- GALERÍA DE RECUERDOS ESTILO POLAROID -->
+            <div class="space-y-6">
+                <div class="text-center">
+                    <p class="uppercase tracking-[0.2em] text-xs text-salviaOscuro font-medium">Instantes guardados</p>
+                    <h3 class="font-serif text-3xl text-tinta mt-1">Nuestros pequeños recuerdos</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-7 pt-2">
+                    <!-- Polaroid 1 -->
+                    <div class="polaroid -rotate-2">
+                        <div class="aspect-square rounded-sm overflow-hidden bg-papel relative">
+                            <img src="Bebita.jpeg"
+                                 alt="Recuerdo 1" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-mano text-2xl text-tinta text-center mt-3">
+                            Mis ojitos siempre te veran de esta manera. 🥺
+                        </p>
+                    </div>
+
+                    <!-- Polaroid 1.5 -->
+                    <div class="polaroid rotate-2">
+                        <div class="aspect-square rounded-sm overflow-hidden bg-papel relative">
+                            <img src="Favvv.jpeg"
+                                 alt="Recuerdo 1" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-mano text-2xl text-tinta text-center mt-3">
+                            Una de mis favvv. 😍
+                        </p>
+                    </div>
+
+                    <!-- Polaroid 2 -->
+                    <div class="polaroid rotate-1">
+                        <div class="aspect-square rounded-sm overflow-hidden bg-papel relative">
+                            <img src="Sonrisa.jpeg"
+                                 alt="Recuerdo 2" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-mano text-2xl text-tinta text-center mt-3">
+                            Mi sonrisa favorita es la tuya. 🙈
+                        </p>
+                    </div>
+
+                    <!-- Polaroid 3 -->
+                    <div class="polaroid -rotate-1">
+                        <div class="aspect-square rounded-sm overflow-hidden bg-papel relative">
+                            <img src="Aventura.jpeg"
+                                 alt="Recuerdo 3" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-mano text-2xl text-tinta text-center mt-3">
+                            Por mil aventuras más a tu lado. 🦔
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =================================================================
+                 JARDÍN INTERACTIVO DE LIRIOS (EXCLUSIVO PARA DESPUÉS DE LA FECHA)
+                 ================================================================= -->
+            <div class="pt-10 border-t border-rosaPolvo/40">
+                <div class="text-center max-w-lg mx-auto mb-6">
+                    <span class="text-salviaOscuro text-xs uppercase tracking-[0.2em] font-medium">Jardín Para Mi Amada.</span>
+                    <h3 class="font-serif text-3xl text-tinta mt-1">Planta un lirio y descubre una nota pada ti. </h3>
+                    <p class="text-sm text-tinta/70 mt-2">
+                        Toca cualquier lugar sobre la tierra suave de abajo para hacer florecer un lirio y leer una razón por la que te quiero.
+                    </p>
+                </div>
+
+                <!-- Tarjeta donde aparece la nota de cariño al tocar o plantar un lirio -->
+                <div class="max-w-md mx-auto mb-5 min-h-[76px] flex items-center justify-center">
+                    <div id="caja-nota-lirio" class="bg-white/80 backdrop-blur-sm border border-rosaViejo/30 rounded-2xl px-6 py-3.5 text-center shadow-sm transition-all duration-300 w-full">
+                        <p id="texto-nota-lirio" class="font-serif italic text-lg text-terracota">
+                            “Toca el jardín para plantar tu primer lirio...”
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lienzo del Jardín Interactivo -->
+                <div id="jardin-lirios" onclick="plantarLirio(event)" class="relative w-full h-64 sm:h-72 rounded-3xl overflow-hidden cursor-pointer border border-salvia/30 shadow-inner select-none"
+                     style="background: linear-gradient(180deg, #FAF6F2 0%, #F3EAE3 68%, #E3ECE0 68%, #D4E1D0 100%);">
+                    
+                    <!-- Colinas suaves de fondo -->
+                    <svg class="absolute bottom-0 inset-x-0 w-full h-28 pointer-events-none" viewBox="0 0 800 120" preserveAspectRatio="none">
+                        <path d="M0 45 Q 200 15, 420 42 T 800 35 L 800 120 L 0 120 Z" fill="#C7D6C2" opacity="0.65"/>
+                        <path d="M0 60 Q 260 35, 520 58 T 800 50 L 800 120 L 0 120 Z" fill="#B5C7AF" opacity="0.8"/>
+                    </svg>
+
+                    <!-- Contenedor donde se generan los lirios -->
+                    <div id="contenedor-flores" class="absolute inset-0 pointer-events-none"></div>
+
+                    <!-- Contador discreto de lirios florecidos -->
+                    <div class="absolute top-3 left-3 bg-crema/85 backdrop-blur-sm text-salviaOscuro text-[11px] font-medium px-3 py-1 rounded-full border border-salvia/30">
+                        Lirios florecidos: <span id="contador-lirios" class="font-semibold text-terracota">3</span>
+                    </div>
+
+                    <!-- Botón discreto para limpiar jardín si hay muchos -->
+                    <button onclick="event.stopPropagation(); limpiarJardin();" class="absolute top-3 right-3 bg-crema/85 hover:bg-crema text-tinta/70 text-[11px] px-3 py-1 rounded-full border border-salvia/30 transition">
+                        Renovar jardín
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================================================
+         LÓGICA JAVASCRIPT (CUENTA REGRESIVA, MÚSICA, PÉTALOS Y JARDÍN)
+         ===================================================================== -->
+    <script>
+        // -------------------------------------------------------------------
+        // 1. CONFIGURACIÓN PRINCIPAL Y NOTAS DE CARIÑO
+        // -------------------------------------------------------------------
+        const FECHA_CUMPLEANOS = new Date(2026, 11, 2, 0, 0, 0); // 2 de diciembre de 2026, 00:00:00 (Mes 11 = Diciembre)
+
+        const NOTAS_DE_CARINO = [
+            "Me encanta cómo iluminas cualquier lugar con tu sonrisa.",
+            "Eres mi pensamiento favorito al despertar y mi paz antes de dormir.",
+            "Contigo hasta los días más simples se sienten extraordinarios.",
+            "Admiro tu dulzura, tu fuerza y la forma tan bonita en que amas.",
+            "Gracias por existir y por dejarme caminar a tu lado.",
+            "Cada lirio de este jardín guarda un deseo bonito para tu nuevo año.",
+            "Tu risa es sin duda mi melodía favorita en todo el mundo."
+        ];
+
+        let modoActual = 'antes';
+        let intensidadPetalos = 14;
+        let indiceNota = 0;
+
+        // -------------------------------------------------------------------
+        // 2. SISTEMA DE MÚSICA (MP3 PERSONALIZADO O PIANO ROMÁNTICO SINTETIZADO)
+        // -------------------------------------------------------------------
+        let musicaActiva = false;
+        let audioCtx = null;
+        let intervaloMelodia = null;
+        let indiceAcorde = 0;
+
+        // Secuencia suave de notas de caja de música / piano romántico (Frecuencias en Hz)
+        const MELODIA_CAJA_MUSICA = [
+            523.25, 659.25, 783.99, 987.77, // Do Mayor 7
+            880.00, 659.25, 523.25, 659.25, // La menor
+            698.46, 880.00, 1046.50, 880.00, // Fa Mayor
+            783.99, 659.25, 587.33, 493.88  // Sol / Si
+        ];
+
+        function actualizarUIMusica(reproduciendo, mensaje) {
+            const disco = document.getElementById('disco-vinilo');
+            const iconoPlay = document.getElementById('icono-play');
+            const iconoPause = document.getElementById('icono-pause');
+            const estadoTexto = document.getElementById('estado-musica-texto');
+
+            if (reproduciendo) {
+                disco.classList.remove('vinilo-pausado');
+                iconoPlay.classList.add('hidden');
+                iconoPause.classList.remove('hidden');
+                estadoTexto.textContent = mensaje || 'Sonando para ti...';
+            } else {
+                disco.classList.add('vinilo-pausado');
+                iconoPlay.classList.remove('hidden');
+                iconoPause.classList.add('hidden');
+                estadoTexto.textContent = mensaje || 'Toca para escuchar nuestra melodía';
+            }
+        }
+
+        function tocarNotaPiano(frecuencia) {
+            try {
+                if (!audioCtx) {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    audioCtx = new AudioContextClass();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                const ahora = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const oscArmonico = audioCtx.createOscillator();
+                const ganancia = audioCtx.createGain();
+
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(frecuencia, ahora);
+
+                oscArmonico.type = 'triangle';
+                oscArmonico.frequency.setValueAtTime(frecuencia * 2, ahora);
+
+                const gananciaArmonico = audioCtx.createGain();
+                gananciaArmonico.gain.setValueAtTime(0.035, ahora);
+
+                ganancia.gain.setValueAtTime(0.001, ahora);
+                ganancia.gain.exponentialRampToValueAtTime(0.14, ahora + 0.06);
+                ganancia.gain.exponentialRampToValueAtTime(0.0008, ahora + 1.8);
+
+                osc.connect(ganancia);
+                oscArmonico.connect(gananciaArmonico);
+                gananciaArmonico.connect(ganancia);
+                ganancia.connect(audioCtx.destination);
+
+                osc.start(ahora);
+                oscArmonico.start(ahora);
+                osc.stop(ahora + 1.9);
+                oscArmonico.stop(ahora + 1.9);
+            } catch (e) {
+                console.warn('AudioContext esperando interacción del usuario:', e);
+            }
+        }
+
+        function iniciarMelodiaSintetizada() {
+            detenerMelodiaSintetizada();
+            musicaActiva = true;
+            actualizarUIMusica(true, 'Melodía de cumpleaños sonando');
+
+            const reproducirPaso = () => {
+                if (!musicaActiva) return;
+                tocarNotaPiano(MELODIA_CAJA_MUSICA[indiceAcorde]);
+                indiceAcorde = (indiceAcorde + 1) % MELODIA_CAJA_MUSICA.length;
+            };
+
+            reproducirPaso();
+            intervaloMelodia = setInterval(reproducirPaso, 680);
+        }
+
+        function detenerMelodiaSintetizada() {
+            if (intervaloMelodia) {
+                clearInterval(intervaloMelodia);
+                intervaloMelodia = null;
+            }
+        }
+
+        function iniciarMusicaCelebracion() {
+            const audioEl = document.getElementById('cancion-cumple');
+            const tieneMP3 = audioEl && audioEl.getAttribute('src') && audioEl.getAttribute('src').trim() !== '';
+
+            if (tieneMP3) {
+                audioEl.volume = 0.65;
+                audioEl.play().then(() => {
+                    musicaActiva = true;
+                    actualizarUIMusica(true, 'Nuestra canción sonando');
+                }).catch(() => {
+                    musicaActiva = false;
+                    actualizarUIMusica(false, 'Toca el vinilo para reproducir');
+                    configurarAutoArranqueAlTocar();
+                });
+            } else {
+                try {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (!audioCtx) audioCtx = new AudioContextClass();
+
+                    if (audioCtx.state === 'running') {
+                        iniciarMelodiaSintetizada();
+                    } else {
+                        audioCtx.resume().then(() => {
+                            if (audioCtx.state === 'running') {
+                                iniciarMelodiaSintetizada();
+                            } else {
+                                actualizarUIMusica(false, 'Toca el vinilo para escuchar');
+                                configurarAutoArranqueAlTocar();
+                            }
+                        }).catch(() => {
+                            actualizarUIMusica(false, 'Toca el vinilo para escuchar');
+                            configurarAutoArranqueAlTocar();
+                        });
+                    }
+                } catch (e) {
+                    actualizarUIMusica(false, 'Toca el vinilo para escuchar');
+                    configurarAutoArranqueAlTocar();
+                }
+            }
+        }
+
+        function configurarAutoArranqueAlTocar() {
+            const desbloquear = () => {
+                if (modoActual === 'cumple' && !musicaActiva) {
+                    alternarMusica();
+                }
+                document.removeEventListener('click', desbloquear);
+                document.removeEventListener('touchstart', desbloquear);
+            };
+            document.addEventListener('click', desbloquear, { once: true });
+            document.addEventListener('touchstart', desbloquear, { once: true });
+        }
+
+        function alternarMusica() {
+            if (modoActual !== 'cumple') return;
+
+            const audioEl = document.getElementById('cancion-cumple');
+            const tieneMP3 = audioEl && audioEl.getAttribute('src') && audioEl.getAttribute('src').trim() !== '';
+
+            if (musicaActiva) {
+                musicaActiva = false;
+                if (tieneMP3) {
+                    audioEl.pause();
+                } else {
+                    detenerMelodiaSintetizada();
+                }
+                actualizarUIMusica(false, 'Música en pausa');
+            } else {
+                if (tieneMP3) {
+                    audioEl.play().then(() => {
+                        musicaActiva = true;
+                        actualizarUIMusica(true, 'Nuestra canción sonando');
+                    }).catch(err => console.warn(err));
+                } else {
+                    iniciarMelodiaSintetizada();
+                }
+            }
+        }
+
+        function detenerYReiniciarMusica() {
+            musicaActiva = false;
+            detenerMelodiaSintetizada();
+            indiceAcorde = 0;
+
+            const audioEl = document.getElementById('cancion-cumple');
+            if (audioEl) {
+                audioEl.pause();
+                audioEl.currentTime = 0;
+            }
+            actualizarUIMusica(false, 'Toca para escuchar nuestra melodía');
+        }
+
+        // -------------------------------------------------------------------
+        // 3. CONTROL DE FECHA REAL Y TRANSICIÓN AUTOMÁTICA (2/12/2026 00:00)
+        // -------------------------------------------------------------------
+        function verificarFechaAutomatica() {
+            const ahora = new Date();
+            if (ahora >= FECHA_CUMPLEANOS) {
+                activarEstadoCumpleanos();
+            } else {
+                activarEstadoAntes();
+            }
+        }
+
+        function activarEstadoAntes() {
+            modoActual = 'antes';
+            intensidadPetalos = 14;
+
+            // Asegurar que la música esté detenida y el reproductor oculto
+            detenerYReiniciarMusica();
+            const reproductor = document.getElementById('reproductor-vinilo');
+            reproductor.classList.add('hidden', 'opacity-0', 'translate-y-4');
+
+            document.getElementById('vista-antes').classList.remove('hidden');
+            document.getElementById('vista-cumple').classList.add('hidden');
+
+            document.getElementById('titulo-principal').innerHTML = 
+                'Esperando el día en que <span class="italic text-terracota">floreces</span>';
+            document.getElementById('subtitulo-principal').textContent = 
+                'Cada pétalo cuenta los instantes que faltan para celebrar tu vida, tu risa y todo lo bonito que traes al mundo.';
+        }
+
+        function activarEstadoCumpleanos() {
+            modoActual = 'cumple';
+            intensidadPetalos = 34; // Lluvia más abundante de pétalos de lirio
+
+            document.getElementById('vista-antes').classList.add('hidden');
+            document.getElementById('vista-cumple').classList.remove('hidden');
+
+            // Mostrar reproductor de vinilo con transición suave e iniciar música
+            const reproductor = document.getElementById('reproductor-vinilo');
+            reproductor.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                reproductor.classList.remove('opacity-0', 'translate-y-4');
+            });
+            iniciarMusicaCelebracion();
+
+            document.getElementById('titulo-principal').innerHTML = 
+                'Feliz cumpleaños, <span class="italic text-terracota">mi vida</span>';
+            document.getElementById('subtitulo-principal').textContent = 
+                'Hoy el jardín florece entero para ti. Que este nuevo año te regale tanta luz como la que tú me das.';
+
+            ajustarCantidadPetalos();
+        }
+
+        // -------------------------------------------------------------------
+        // 4. CUENTA REGRESIVA EN TIEMPO REAL
+        // -------------------------------------------------------------------
+        function actualizarCuentaRegresiva() {
+            const ahora = new Date();
+            const diferencia = FECHA_CUMPLEANOS - ahora;
+
+            if (diferencia <= 0) {
+                document.getElementById('dias').textContent = '00';
+                document.getElementById('horas').textContent = '00';
+                document.getElementById('minutos').textContent = '00';
+                document.getElementById('segundos').textContent = '00';
+                
+                // Al llegar las 00:00:00 del 2 de diciembre de 2026 en vivo, desbloquear automáticamente
+                if (modoActual === 'antes') {
+                    activarEstadoCumpleanos();
+                    mostrarNotificacion("¡Llegó el 2 de diciembre! Feliz cumpleaños, mi amor ♡");
+                }
+                return;
+            }
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferencia / 1000 / 60) % 60);
+            const segundos = Math.floor((diferencia / 1000) % 60);
+
+            document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+            document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+            document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+            document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+        }
+
+        // -------------------------------------------------------------------
+        // 4. INTERACCIÓN CON EL SOBRE SELLADO CON LACRE
+        // -------------------------------------------------------------------
+        function intentarAbrirSobre() {
+            const sobre = document.getElementById('sobre-cerrado');
+            sobre.classList.remove('sacudir-sobre');
+            void sobre.offsetWidth; // Reiniciar animación
+            sobre.classList.add('sacudir-sobre');
+
+            const mensajesPaciencia = [
+                "Aún no es 2 de diciembre... ¡prometo que valdrá la pena esperar!",
+                "El sello de lacre guarda tus palabras hasta el 2 de diciembre ♡",
+                "Un poquito de paciencia, mi amor, pronto podrás abrirla."
+            ];
+            const aleatorio = mensajesPaciencia[Math.floor(Math.random() * mensajesPaciencia.length)];
+            mostrarNotificacion(aleatorio);
+        }
+
+        function mostrarNotificacion(texto) {
+            const box = document.getElementById('notificacion-dulce');
+            document.getElementById('texto-notificacion').textContent = texto;
+            box.classList.remove('opacity-0', '-translate-y-3');
+            box.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(window.timerNotif);
+            window.timerNotif = setTimeout(() => {
+                box.classList.add('opacity-0', '-translate-y-3');
+                box.classList.remove('opacity-100', 'translate-y-0');
+            }, 3400);
+        }
+
+        // -------------------------------------------------------------------
+        // 5. VELA DEL PASTEL INTERACTIVA (SOPLAR / ENCENDER)
+        // -------------------------------------------------------------------
+        let velaEncendida = true;
+
+        function soplarVela() {
+            if (!velaEncendida) return;
+            velaEncendida = false;
+
+            document.getElementById('grupo-llama').style.opacity = '0';
+            document.getElementById('resplandor-vela').style.opacity = '0';
+            
+            const humo = document.getElementById('humo-vela');
+            humo.classList.remove('opacity-0');
+            humo.classList.add('humo-activo');
+
+            document.getElementById('instruccion-vela').classList.add('hidden');
+            document.getElementById('mensaje-deseo').classList.remove('hidden');
+            mostrarNotificacion("¡Feliz cumpleaños! Que se cumplan todos tus deseos");
+        }
+
+        function encenderVela() {
+            velaEncendida = true;
+            document.getElementById('grupo-llama').style.opacity = '1';
+            document.getElementById('resplandor-vela').style.opacity = '1';
+            
+            const humo = document.getElementById('humo-vela');
+            humo.classList.remove('humo-activo');
+            humo.classList.add('opacity-0');
+
+            document.getElementById('instruccion-vela').classList.remove('hidden');
+            document.getElementById('mensaje-deseo').classList.add('hidden');
+        }
+
+        // -------------------------------------------------------------------
+        // 6. JARDÍN INTERACTIVO DE LIRIOS
+        // -------------------------------------------------------------------
+        function crearSVGLirio(esBlanco, escala) {
+            const colorPetalo1 = esBlanco ? '#FFFDF9' : '#E8B9B8';
+            const colorPetalo2 = esBlanco ? '#F7EAE4' : '#DFA6A5';
+            const colorCentro  = esBlanco ? '#F3D8D7' : '#F4CECD';
+            const borde        = esBlanco ? '#E2B4B3' : '#C98A8B';
+
+            return `
+                <svg style="transform: scale(${escala});" class="w-16 h-24 lirio-brisa drop-shadow-sm" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 138C50 110 48 85 50 62" stroke="#6E7E66" stroke-width="2.4" stroke-linecap="round"/>
+                    <path d="M49 112C34 102 26 88 30 80C38 84 46 96 49 112Z" fill="#7D8C75"/>
+                    <path d="M50 100C66 90 74 76 70 68C62 72 54 85 50 100Z" fill="#8FA086"/>
+                    <path d="M50 64C32 55 20 38 28 25C38 31 46 47 50 64Z" fill="${colorPetalo1}" stroke="${borde}" stroke-width="0.8"/>
+                    <path d="M50 64C68 55 80 38 72 25C62 31 54 47 50 64Z" fill="${colorPetalo2}" stroke="${borde}" stroke-width="0.8"/>
+                    <path d="M50 64C40 43 42 20 50 12C58 20 60 43 50 64Z" fill="${colorCentro}" stroke="${borde}" stroke-width="0.8"/>
+                    <path d="M50 64C30 66 16 57 17 46C27 45 40 52 50 64Z" fill="${colorPetalo2}"/>
+                    <path d="M50 64C70 66 84 57 83 46C73 45 60 52 50 64Z" fill="${colorPetalo1}"/>
+                    <path d="M50 60L45 37M50 60L55 37" stroke="#C5A065" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="45" cy="36" r="2" fill="#A86466"/>
+                    <circle cx="55" cy="36" r="2" fill="#A86466"/>
+                </svg>
+            `;
+        }
+
+        function plantarLirio(evento) {
+            const jardin = document.getElementById('jardin-lirios');
+            const rect = jardin.getBoundingClientRect();
+            const x = evento.clientX - rect.left;
+            const y = evento.clientY - rect.top;
+
+            // Limitar la zona de plantado a la parte baja del jardín (tierra/césped)
+            const yAjustado = Math.max(rect.height * 0.58, Math.min(y, rect.height - 8));
+
+            const florDiv = document.createElement('div');
+            florDiv.className = 'absolute anim-florecer pointer-events-auto cursor-pointer';
+            florDiv.style.left = `${x - 32}px`;
+            florDiv.style.top = `${yAjustado - 88}px`;
+            florDiv.style.zIndex = Math.floor(yAjustado);
+
+            const esBlanco = Math.random() > 0.5;
+            const escala = 0.85 + Math.random() * 0.35;
+            florDiv.innerHTML = crearSVGLirio(esBlanco, escala);
+
+            // Al tocar una flor ya plantada también muestra una nota
+            florDiv.onclick = (e) => {
+                e.stopPropagation();
+                mostrarSiguienteNota();
+            };
+
+            document.getElementById('contenedor-flores').appendChild(florDiv);
+            actualizarContadorLirios();
+            mostrarSiguienteNota();
+        }
+
+        function actualizarContadorLirios() {
+            const total = document.getElementById('contenedor-flores').children.length;
+            const contadorEl = document.getElementById('contador-lirios');
+            if (contadorEl) contadorEl.textContent = total;
+        }
+
+        function mostrarSiguienteNota() {
+            const caja = document.getElementById('caja-nota-lirio');
+            const texto = document.getElementById('texto-nota-lirio');
+            
+            caja.style.transform = 'scale(0.97)';
+            setTimeout(() => {
+                texto.textContent = `“${NOTAS_DE_CARINO[indiceNota]}”`;
+                indiceNota = (indiceNota + 1) % NOTAS_DE_CARINO.length;
+                caja.style.transform = 'scale(1)';
+            }, 140);
+        }
+
+        function limpiarJardin() {
+            document.getElementById('contenedor-flores').innerHTML = '';
+            sembrarLiriosIniciales();
+            actualizarContadorLirios();
+        }
+
+        function sembrarLiriosIniciales() {
+            const contenedor = document.getElementById('contenedor-flores');
+            const posiciones = [
+                { left: '18%', top: '52%', blanco: false, escala: 0.95 },
+                { left: '48%', top: '56%', blanco: true, escala: 1.05 },
+                { left: '76%', top: '50%', blanco: false, escala: 0.9 }
+            ];
+            posiciones.forEach(pos => {
+                const div = document.createElement('div');
+                div.className = 'absolute anim-florecer pointer-events-auto cursor-pointer';
+                div.style.left = pos.left;
+                div.style.top = pos.top;
+                div.innerHTML = crearSVGLirio(pos.blanco, pos.escala);
+                div.onclick = (e) => {
+                    e.stopPropagation();
+                    mostrarSiguienteNota();
+                };
+                contenedor.appendChild(div);
+            });
+            actualizarContadorLirios();
+        }
+
+        // -------------------------------------------------------------------
+        // 7. PÉTALOS DE LIRIO FLOTANTES Y REACTIVOS AL RATÓN / TOQUE
+        // -------------------------------------------------------------------
+        const canvas = document.getElementById('lienzo-petalos');
+        const ctx = canvas.getContext('2d');
+        let petalos = [];
+        let puntero = { x: -1000, y: -1000 };
+
+        function redimensionarCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', redimensionarCanvas);
+        redimensionarCanvas();
+
+        window.addEventListener('mousemove', (e) => {
+            puntero.x = e.clientX;
+            puntero.y = e.clientY;
+        });
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                puntero.x = e.touches[0].clientX;
+                puntero.y = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        class PetaloLirio {
+            constructor() {
+                this.reiniciar(true);
+            }
+            reiniciar(inicioAleatorio = false) {
+                this.x = Math.random() * canvas.width;
+                this.y = inicioAleatorio ? Math.random() * canvas.height : -20;
+                this.tamano = 7 + Math.random() * 8;
+                this.velocidadY = 0.45 + Math.random() * 0.75;
+                this.velocidadX = (Math.random() - 0.5) * 0.6;
+                this.angulo = Math.random() * Math.PI * 2;
+                this.velGiro = (Math.random() - 0.5) * 0.025;
+                this.oscilacion = Math.random() * Math.PI * 2;
+                // Tonos rosa empolvado y crema orgánico
+                const colores = [
+                    'rgba(232, 185, 184, 0.55)',
+                    'rgba(217, 155, 156, 0.45)',
+                    'rgba(255, 250, 245, 0.70)',
+                    'rgba(242, 206, 205, 0.55)'
+                ];
+                this.color = colores[Math.floor(Math.random() * colores.length)];
+            }
+            actualizar() {
+                this.oscilacion += 0.02;
+                this.y += this.velocidadY;
+                this.x += this.velocidadX + Math.sin(this.oscilacion) * 0.35;
+                this.angulo += this.velGiro;
+
+                // Brisa suave al pasar el ratón o el dedo cerca del pétalo
+                const dx = this.x - puntero.x;
+                const dy = this.y - puntero.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 110) {
+                    const fuerza = (110 - dist) / 110;
+                    this.x += (dx / dist) * fuerza * 2.2;
+                    this.y += (dy / dist) * fuerza * 1.2;
+                }
+
+                if (this.y > canvas.height + 25 || this.x < -30 || this.x > canvas.width + 30) {
+                    this.reiniciar(false);
+                }
+            }
+            dibujar() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angulo);
+                ctx.fillStyle = this.color;
+
+                // Forma orgánica alargada de pétalo de lirio
+                ctx.beginPath();
+                ctx.moveTo(0, -this.tamano);
+                ctx.bezierCurveTo(
+                    this.tamano * 0.65, -this.tamano * 0.3,
+                    this.tamano * 0.55, this.tamano * 0.5,
+                    0, this.tamano
+                );
+                ctx.bezierCurveTo(
+                    -this.tamano * 0.55, this.tamano * 0.5,
+                    -this.tamano * 0.65, -this.tamano * 0.3,
+                    0, -this.tamano
+                );
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+        
+        function ajustarCantidadPetalos() {
+            while (petalos.length < intensidadPetalos) {
+                petalos.push(new PetaloLirio());
+            }
+            while (petalos.length > intensidadPetalos) {
+                petalos.pop();
+            }
+        }
+
+        function animarPetalos() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            petalos.forEach(p => {
+                p.actualizar();
+                p.dibujar();
+            });
+            requestAnimationFrame(animarPetalos);
+        }
+        
+        // -------------------------------------------------------------------
+        // INICIALIZACIÓN AL CARGAR LA PÁGINA
+        // -------------------------------------------------------------------
+        window.onload = function() {
+            verificarFechaAutomatica();
+            actualizarCuentaRegresiva();
+            setInterval(actualizarCuentaRegresiva, 1000);
+            sembrarLiriosIniciales();
+            ajustarCantidadPetalos();
+            animarPetalos();
+        };
+    </script>
+</body>
+</html>
